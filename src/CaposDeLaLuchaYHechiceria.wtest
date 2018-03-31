@@ -1,0 +1,7 @@
+import CaposDeLaLuchaYHechiceria.*
+
+test "testX" {
+
+	assert.that(true)
+
+}
