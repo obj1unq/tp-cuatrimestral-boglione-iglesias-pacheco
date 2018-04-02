@@ -1,7 +1,21 @@
 import CaposDeLaLuchaYHechiceria.*
 
-test "testX" {
+test "rolando tiene 3 puntos de lucha" {
+	assert.equals(3, rolando.lucha())
+}
 
-	assert.that(true)
+test "rolando tiene 1 punto de hechiceria" {
+	assert.equals(1, rolando.hechiceria())
+}
 
+test "rolando tiene 5 puntos de lucha" {
+	rolando.incrementarLucha()
+	rolando.incrementarLucha()
+	assert.equals(5, rolando.lucha())
+}
+
+test "rolando tiene 3 puntos de hechiceria" {
+	rolando.incrementarHechiceria()
+	rolando.incrementarHechiceria()
+	assert.equals(3, rolando.hechiceria())
 }
