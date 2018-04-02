@@ -1,21 +1,36 @@
 import CaposDeLaLuchaYHechiceria.*
 
-test "rolando tiene 3 puntos de lucha" {
-	assert.equals(3, rolando.lucha())
+test "rolando comienza con 3 tres puntos basicos de lucha y 1 de hechiceria" {
+	assert.equals(3, rolando.luchaBase())
+	assert.equals(1, rolando.hechiceriaBase())
 }
 
-test "rolando tiene 1 punto de hechiceria" {
-	assert.equals(1, rolando.hechiceria())
+test "rolando incrementa los puntos basicos de hechiceria" {
+	rolando.incValorBaseDeHechiceria()
+	assert.equals(3, rolando.luchaBase())
+	assert.equals(2, rolando.hechiceriaBase())
 }
 
-test "rolando tiene 5 puntos de lucha" {
-	rolando.incrementarLucha()
-	rolando.incrementarLucha()
-	assert.equals(5, rolando.lucha())
+test "rolando obtiene el collar divino" {
+	rolando.incValorBaseDeHechiceria()
+	rolando.obtenerArtefacto(collarDivino)
+	assert.equals(4, rolando.puntosDeLuchaTotal())
+	assert.equals(3, rolando.puntosDeHechiceriaTotal())
 }
 
-test "rolando tiene 3 puntos de hechiceria" {
-	rolando.incrementarHechiceria()
-	rolando.incrementarHechiceria()
-	assert.equals(3, rolando.hechiceria())
+test "rolando obtiene el libro de hechizos" {
+	rolando.incValorBaseDeHechiceria()
+	rolando.obtenerArtefacto(collarDivino)
+	rolando.obtenerArtefacto(libroDeHechizos)
+	assert.equals(4, rolando.puntosDeLuchaTotal())
+	assert.equals(5, rolando.puntosDeHechiceriaTotal())
+}
+
+test "rolando obtiene la espada del destino" {
+	rolando.incValorBaseDeHechiceria()
+	rolando.obtenerArtefacto(collarDivino)
+	rolando.obtenerArtefacto(libroDeHechizos)
+	rolando.obtenerArtefacto(espadaDelDestino)
+	assert.equals(7, rolando.puntosDeLuchaTotal())
+	assert.equals(5, rolando.puntosDeHechiceriaTotal())
 }
