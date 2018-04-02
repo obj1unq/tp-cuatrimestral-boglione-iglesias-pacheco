@@ -14,16 +14,3 @@ object rolando {
 	}
 }
 
-//------Artefactos------
-
-object espadaDelDestino {
-	
-}
-
-object libroDeHechizos {
-	
-}
-
-object collarDivino {
-	
-}
