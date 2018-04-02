@@ -1,3 +1,4 @@
+/* parte 1 */
 object rolando{
 	const luchaBase = 3
 	const hechiceriaBase=1
@@ -50,4 +51,51 @@ object collarDivino{
 		return 1
 	}
 	
+}
+object armadura{
+	var refuerzo="ninguna"
+	
+	method nuevoRefuerzo(_refuerzo){
+		refuerzo=_refuerzo
+	}
+	method puntosDeHechiceria(objeto){
+		return refuerzo.hechiceria()
+	}
+	method puntosDeLucha(objeto){
+		return 2 + refuerzo.lucha()
+	}
+}
+
+object cotaDeMalla{
+	method lucha(){
+		return 1
+	}
+	method hechiceria(){
+		return 0
+	}
+}
+object bendicion{
+	method lucha(){
+		return 0
+	}
+	method hechiceria(){
+		return 1
+	}
+}
+object hechizo{
+	method lucha(){
+		return 0
+	}
+	method hechiceria(){
+		return 0
+	}
+}
+object ninguna{
+	method lucha(){
+		return 0
+	}
+	method hechiceria(){
+		return 0
+	}
+}
 }
