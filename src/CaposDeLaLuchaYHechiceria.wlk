@@ -1,17 +1,24 @@
 /* parte 1 */
+
+//------Capos------
+
 object rolando{
 	var luchaBase = 3
-	var hechiceriaBase=1
-	var artefactos= []
+	var hechiceriaBase = 1
+	var artefactos = #{}
 	
 	
-	method incValorBaseDeLucha(){ luchaBase+= + 1}
-	method incValorBaseDeHechiceria() { hechiceriaBase += 1}
+	method incValorBaseDeLucha() {
+		luchaBase+= + 1
+	}
+	method incValorBaseDeHechiceria() {
+		hechiceriaBase += 1
+	}
 	method obtenerArtefacto(_Artefacto){
 		artefactos.add(_Artefacto)
 	}
-	method puntosDeLuchaArtefactos()= artefactos.sum({_Artefacto => _Artefacto.puntosDeLucha()})
-	method puntosDeHechiceriaArtefactos()= artefactos.sum({_Artefacto =>_Artefacto.puntosDeHechiceria(self)})
+	method puntosDeLuchaArtefactos() = artefactos.sum({_Artefacto => _Artefacto.puntosDeLucha()})
+	method puntosDeHechiceriaArtefactos() = artefactos.sum({_Artefacto => _Artefacto.puntosDeHechiceria(self)})
 	
 	method luchaBase(){
 		return luchaBase
@@ -23,16 +30,18 @@ object rolando{
 		return luchaBase +  self.puntosDeLuchaArtefactos()
 	}
 	method puntosDeHechiceriaTotal(){
-		return hechiceriaBase + self.puntosDeHechiceriaArtefacto()
+		return hechiceriaBase + self.puntosDeHechiceriaArtefactos()
 	}
 }
+
+//------Artefactos------
 
 object espadaDelDestino{
 	method puntosDeHechiceria(objeto){
 		return 0
 	}
 	method puntosDeLucha(){
-		return 0
+		return 3
 	}
 }
 object libroDeHechizos{
@@ -49,9 +58,11 @@ object collarDivino{
 	}
 	method puntosDeLucha(){
 		return 1
-	}
-	
+	}	
 }
+
+//------Artefactos avanzados------
+
 object armadura{
 	var refuerzo= ninguna
 	
@@ -59,7 +70,7 @@ object armadura{
 		refuerzo=_refuerzo
 	}
 	method puntosDeHechiceria(objeto){
-		return refuerzo.hechiceria(objeto.hechiceriaBase)
+		return refuerzo.hechiceria(objeto.hechiceriaBase())
 	}
 	method puntosDeLucha(objeto){
 		return 2 + refuerzo.lucha()
