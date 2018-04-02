@@ -9,7 +9,7 @@ object rolando{
 	
 	
 	method incValorBaseDeLucha() {
-		luchaBase+= + 1
+		luchaBase += 1
 	}
 	method incValorBaseDeHechiceria() {
 		hechiceriaBase += 1
