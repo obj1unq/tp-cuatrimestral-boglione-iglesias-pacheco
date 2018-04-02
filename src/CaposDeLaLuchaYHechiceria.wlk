@@ -59,7 +59,7 @@ object armadura{
 		refuerzo=_refuerzo
 	}
 	method puntosDeHechiceria(objeto){
-		return refuerzo.hechiceria()
+		return refuerzo.hechiceria(objeto.hechiceriaBase)
 	}
 	method puntosDeLucha(objeto){
 		return 2 + refuerzo.lucha()
@@ -70,7 +70,7 @@ object cotaDeMalla{
 	method lucha(){
 		return 1
 	}
-	method hechiceria(){
+	method hechiceria(puntos){
 		return 0
 	}
 }
@@ -78,7 +78,7 @@ object bendicion{
 	method lucha(){
 		return 0
 	}
-	method hechiceria(){
+	method hechiceria(puntos){
 		return 1
 	}
 }
@@ -86,15 +86,15 @@ object hechizo{
 	method lucha(){
 		return 0
 	}
-	method hechiceria(){
-		return 0
+	method hechiceria(puntos){
+		return if(puntos>3){2} else{0}
 	}
 }
 object ninguna{
 	method lucha(){
 		return 0
 	}
-	method hechiceria(){
+	method hechiceria(puntos){
 		return 0
 	}
 }
