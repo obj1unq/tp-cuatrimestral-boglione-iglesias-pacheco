@@ -10,8 +10,8 @@ object rolando{
 	method obtenerArtefacto(_Artefacto){
 		artefactos.add(_Artefacto)
 	}
-	method puntosDeLuchaArtefacto()= _Artefacto.puntosDeLucha()
-	method puntosDeHechiceriaArtefacto()= _Artefacto.puntosDeHechiceria(self)
+	method puntosDeLuchaArtefactos()= artefactos.sum({_Artefacto => _Artefacto.puntosDeLucha()})
+	method puntosDeHechiceriaArtefactos()= artefactos.sum({_Artefacto =>_Artefacto.puntosDeHechiceria(self)})
 	
 	method luchaBase(){
 		return luchaBase
@@ -20,10 +20,10 @@ object rolando{
 		return hechiceriaBase
 	}
 	method puntosDeLuchaTotal(){
-		return luchaBase +  artefactos.sum([_Artefacto => _Artefacto.puntosDeLucha()])
+		return luchaBase +  self.puntosDeLuchaArtefactos()
 	}
 	method puntosDeHechiceriaTotal(){
-		return hechiceriaBase+self.puntosDeHechiceriaArtefacto()
+		return hechiceriaBase + self.puntosDeHechiceriaArtefacto()
 	}
 }
 
