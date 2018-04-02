@@ -1,39 +1,53 @@
-//------Capos------
-
-object rolando {
-	var luchaBase = 3
-	var hechiceriaBase = 1
-	var lucha = luchaBase
-	var hechiceria = hechiceriaBase
-	//la idea seria utilizar luchaBase y hechiceriaBase para tener registro de los valores originales, y modificar lucha y hechiceria usando los artefactos
+object rolando{
+	const luchaBase = 3
+	const hechiceriaBase=1
+	var artefacto 
 	
-	method incrementarLucha() {
-		luchaBase += 1
-		lucha += 1
-	}
-	method incrementarHechiceria() {
-		hechiceriaBase += 1
-		hechiceria += 1
-	}
 	
-	method lucha() {
-		return lucha
+	method incValorBaseDeLucha() = luchaBase + 1
+	method incValorBaseDeHechiceria() = hechiceriaBase + 1
+	method obtenerArtefacto(_Artefacto){
+		artefacto = _Artefacto
 	}
-	method hechiceria() {
-		return hechiceria
+	method puntosDeLuchaArtefacto()= artefacto.puntosDeLucha()
+	method puntosDeHechiceriaArtefacto()=artefacto.puntosDeHechiceria(self)
+	
+	method luchaBase(){
+		return luchaBase
+	}
+	method hechiceriaBase(){
+		return hechiceriaBase
+	}
+	method puntosDeLuchaTotal(){
+		return luchaBase + self.puntosDeLuchaArtefacto()
+	}
+	method puntosDeHechiceriaTotal(){
+		return hechiceriaBase+self.puntosDeHechiceriaArtefacto()
 	}
 }
 
-//------Artefactos------
-
-object espadaDelDestino {
-	
+object espadaDelDestino{
+	method puntosDeHechiceria(objeto){
+		return 0
+	}
+	method puntosDeLucha(){
+		return 0
+	}
 }
-
-object libroDeHechizos {
-	
+object libroDeHechizos{
+	method puntosDeHechiceria(objeto){
+		return objeto.hechiceriaBase()
+	}
+	method puntosDeLucha(){
+		return 0
+	}
 }
-
-object collarDivino {
+object collarDivino{
+	method puntosDeHechiceria(objeto){
+		return 1
+	}
+	method puntosDeLucha(){
+		return 1
+	}
 	
 }
