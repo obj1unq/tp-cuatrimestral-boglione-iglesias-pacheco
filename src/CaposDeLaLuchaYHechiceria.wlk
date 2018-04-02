@@ -1,12 +1,12 @@
 /* parte 1 */
 object rolando{
-	const luchaBase = 3
-	const hechiceriaBase=1
+	var luchaBase = 3
+	var hechiceriaBase=1
 	var artefactos= []
 	
 	
-	method incValorBaseDeLucha() = luchaBase + 1
-	method incValorBaseDeHechiceria() = hechiceriaBase + 1
+	method incValorBaseDeLucha(){ luchaBase+= + 1}
+	method incValorBaseDeHechiceria() { hechiceriaBase += 1}
 	method obtenerArtefacto(_Artefacto){
 		artefactos.add(_Artefacto)
 	}
