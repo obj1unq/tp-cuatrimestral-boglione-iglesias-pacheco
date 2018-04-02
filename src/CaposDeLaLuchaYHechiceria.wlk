@@ -53,7 +53,7 @@ object collarDivino{
 	
 }
 object armadura{
-	var refuerzo="ninguna"
+	var refuerzo= ninguna
 	
 	method nuevoRefuerzo(_refuerzo){
 		refuerzo=_refuerzo
@@ -97,5 +97,4 @@ object ninguna{
 	method hechiceria(){
 		return 0
 	}
-}
 }
