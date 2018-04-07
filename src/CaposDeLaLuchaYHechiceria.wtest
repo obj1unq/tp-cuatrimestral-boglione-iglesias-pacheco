@@ -72,3 +72,19 @@ test "rolando obtiene una armadura sin refuerzos" {
 	assert.equals(5, rolando.puntosDeLuchaTotal())
 	assert.equals(1, rolando.puntosDeHechiceriaTotal())
 }
+
+test "rolando encuentra un cofrecito de oro" {
+	rolando.encontrarElemento(cofrecitoDeOro)
+	assert.equals(100, bandoDelSur.tesoro())
+}
+
+test "rolando encuentra un cumulo de carbon" {
+	rolando.encontrarElemento(cumuloDeCarbon)
+	assert.equals(50, bandoDelSur.reservaDeMateriales())
+}
+
+test "rolando se encuentra con un viejo sabio" {
+	rolando.encontrarElemento(viejoSabio)
+	assert.equals(4, rolando.luchaBase())
+	assert.equals(2, rolando.hechiceriaBase())
+}
