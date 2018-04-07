@@ -34,3 +34,41 @@ test "rolando obtiene la espada del destino" {
 	assert.equals(7, rolando.puntosDeLuchaTotal())
 	assert.equals(5, rolando.puntosDeHechiceriaTotal())
 }
+
+test "rolando obtiene una armadura de cota de malla" {
+	armadura.nuevoRefuerzo(cotaDeMalla)
+	rolando.obtenerArtefacto(armadura)
+	assert.equals(6, rolando.puntosDeLuchaTotal())
+	assert.equals(1, rolando.puntosDeHechiceriaTotal())
+}
+
+test "rolando obtiene una armadura con bendicion" {
+	armadura.nuevoRefuerzo(bendicion)
+	rolando.obtenerArtefacto(armadura)
+	assert.equals(5, rolando.puntosDeLuchaTotal())
+	assert.equals(2, rolando.puntosDeHechiceriaTotal())
+}
+
+test "rolando obtiene una armadura con hechizo" {
+	armadura.nuevoRefuerzo(hechizo)
+	rolando.obtenerArtefacto(armadura)
+	assert.equals(5, rolando.puntosDeLuchaTotal())
+	assert.equals(1, rolando.puntosDeHechiceriaTotal())
+}
+
+test "rolando obtiene una armadura con hechizo 2" {
+	rolando.incValorBaseDeHechiceria()
+	rolando.incValorBaseDeHechiceria()
+	rolando.incValorBaseDeHechiceria()
+	armadura.nuevoRefuerzo(hechizo)
+	rolando.obtenerArtefacto(armadura)
+	assert.equals(5, rolando.puntosDeLuchaTotal())
+	assert.equals(6, rolando.puntosDeHechiceriaTotal())
+}
+
+test "rolando obtiene una armadura sin refuerzos" {
+	armadura.nuevoRefuerzo(ninguna)
+	rolando.obtenerArtefacto(armadura)
+	assert.equals(5, rolando.puntosDeLuchaTotal())
+	assert.equals(1, rolando.puntosDeHechiceriaTotal())
+}

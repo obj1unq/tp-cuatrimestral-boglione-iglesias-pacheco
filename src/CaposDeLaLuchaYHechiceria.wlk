@@ -72,7 +72,7 @@ object armadura{
 	method puntosDeHechiceria(objeto){
 		return refuerzo.hechiceria(objeto.hechiceriaBase())
 	}
-	method puntosDeLucha(objeto){
+	method puntosDeLucha(){
 		return 2 + refuerzo.lucha()
 	}
 }
