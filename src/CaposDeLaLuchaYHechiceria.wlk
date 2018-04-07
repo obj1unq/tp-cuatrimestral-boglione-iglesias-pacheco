@@ -32,6 +32,36 @@ object rolando{
 	method puntosDeHechiceriaTotal(){
 		return hechiceriaBase + self.puntosDeHechiceriaArtefactos()
 	}
+	
+	method encontrarElemento(elemento) {
+		bandoDelSur.aniadirTesoro(elemento.tesoro())
+		bandoDelSur.aniadirMateriales(elemento.materiales())
+		luchaBase += elemento.puntosDeLucha()
+		hechiceriaBase += elemento.puntosDeHechiceria()
+	}
+}
+
+//------Bandos------
+
+object bandoDelSur {
+	var tesoro = 0
+	var reservaDeMateriales = 0
+	
+	method aniadirTesoro(cant) {
+		tesoro += cant
+	}
+	
+	method aniadirMateriales(cant) {
+		reservaDeMateriales += cant
+	}
+	
+	method tesoro() {
+		return tesoro
+	}
+	
+	method reservaDeMateriales() {
+		return reservaDeMateriales
+	}
 }
 
 //------Artefactos------
@@ -108,4 +138,27 @@ object ninguna{
 	method hechiceria(puntos){
 		return 0
 	}
+}
+
+//------Elementos------
+
+object cofrecitoDeOro {
+	method tesoro() = 100
+	method materiales() = 0
+	method puntosDeLucha() = 0
+	method puntosDeHechiceria() = 0
+}
+
+object cumuloDeCarbon {
+	method tesoro() = 0
+	method materiales() = 50
+	method puntosDeLucha() = 0
+	method puntosDeHechiceria() = 0
+}
+
+object viejoSabio {
+	method tesoro() = 0
+	method materiales() = 0
+	method puntosDeLucha() = 1
+	method puntosDeHechiceria() = 1
 }
