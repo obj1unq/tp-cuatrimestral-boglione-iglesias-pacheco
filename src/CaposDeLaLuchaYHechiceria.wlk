@@ -44,12 +44,10 @@ object rolando{
 	}
 	method mejorArtefacto(){
 		return if (!(self.artefactosEnUso()).remove(espejoFantastico).isEmpty())
-				{(self.artefactosEnUso()).remove(espejoFantastico).max({_artefacto=>self.sumaDeLuchaYHechiceria(_artefacto)})}
+				{(self.artefactosEnUso()).remove(espejoFantastico).max({_artefacto=>_artefacto.sumaDeLuchaYHechiceria(self)})}
 				else{ artefactoCero}
 	}
-	method sumaDeLuchaYHechiceria(objeto){
-		return objeto.puntosDeLucha(objeto) + objeto.puntosDeHechiceria(objeto)
-	}
+	
 }
 
 //------Bandos------
@@ -83,6 +81,9 @@ object artefactoCero{
 	method puntosDeLucha(objeto){
 		return 0
 	}
+	method sumaDeLuchaYHechiceria(objeto){
+		return self.puntosDeLucha(objeto) + self.puntosDeHechiceria(objeto)
+	}
 }
 object espadaDelDestino{
 	method puntosDeHechiceria(objeto){
@@ -90,6 +91,9 @@ object espadaDelDestino{
 	}
 	method puntosDeLucha(objeto){
 		return 3
+	}
+	method sumaDeLuchaYHechiceria(objeto){
+		return self.puntosDeLucha(objeto) + self.puntosDeHechiceria(objeto)
 	}
 }
 object libroDeHechizos{
@@ -99,6 +103,9 @@ object libroDeHechizos{
 	method puntosDeLucha(objeto){
 		return 0
 	}
+	method sumaDeLuchaYHechiceria(objeto){
+		return self.puntosDeLucha(objeto) + self.puntosDeHechiceria(objeto)
+	}
 }
 object collarDivino{
 	method puntosDeHechiceria(objeto){
@@ -106,6 +113,9 @@ object collarDivino{
 	}
 	method puntosDeLucha(objeto){
 		return 1
+	}
+	method sumaDeLuchaYHechiceria(objeto){
+		return self.puntosDeLucha(objeto) + self.puntosDeHechiceria(objeto)
 	}	
 }
 
@@ -117,6 +127,9 @@ object espejoFantastico{
 	}
 	method puntosDeLucha(objeto){
 		return (objeto.mejorArtefacto()).puntosDeLucha(objeto)
+	}
+	method sumaDeLuchaYHechiceria(objeto){
+		return self.puntosDeLucha(objeto) + self.puntosDeHechiceria(objeto)
 	}
 }
 
@@ -131,6 +144,9 @@ object armadura{
 	}
 	method puntosDeLucha(objeto){
 		return 2 + refuerzo.lucha()
+	}
+	method sumaDeLuchaYHechiceria(objeto){
+		return self.puntosDeLucha(objeto) + self.puntosDeHechiceria(objeto)
 	}
 }
 
