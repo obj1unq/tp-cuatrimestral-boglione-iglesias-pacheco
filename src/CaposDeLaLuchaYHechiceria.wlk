@@ -45,7 +45,7 @@ object rolando{
 	method mejorArtefacto(){
 		return if (!(self.artefactosEnUso()).remove(espejoFantastico).isEmpty())
 				{(self.artefactosEnUso()).remove(espejoFantastico).max({_artefacto=>self.sumaDeLuchaYHechiceria(_artefacto)})}
-				else{ }
+				else{ artefactoCero}
 	}
 	method sumaDeLuchaYHechiceria(objeto){
 		return objeto.puntosDeLucha(objeto) + objeto.puntosDeHechiceria(objeto)
@@ -76,7 +76,14 @@ object bandoDelSur {
 }
 
 //------Artefactos------
-
+object artefactoCero{
+	method puntosDeHechiceria(objeto){
+		return 0
+	}
+	method puntosDeLucha(objeto){
+		return 0
+	}
+}
 object espadaDelDestino{
 	method puntosDeHechiceria(objeto){
 		return 0
