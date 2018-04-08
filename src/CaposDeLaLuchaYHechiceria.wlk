@@ -17,7 +17,7 @@ object rolando{
 	method obtenerArtefacto(_Artefacto){
 		artefactos.add(_Artefacto)
 	}
-	method puntosDeLuchaArtefactos() = artefactos.sum({_Artefacto => _Artefacto.puntosDeLucha()})
+	method puntosDeLuchaArtefactos() = artefactos.sum({_Artefacto => _Artefacto.puntosDeLucha(self)})
 	method puntosDeHechiceriaArtefactos() = artefactos.sum({_Artefacto => _Artefacto.puntosDeHechiceria(self)})
 	
 	method luchaBase(){
@@ -38,6 +38,17 @@ object rolando{
 		bandoDelSur.aniadirMateriales(elemento.materiales())
 		luchaBase += elemento.puntosDeLucha()
 		hechiceriaBase += elemento.puntosDeHechiceria()
+	}
+	method artefactosEnUso(){
+		return artefactos
+	}
+	method mejorArtefacto(){
+		return if (!(self.artefactosEnUso()).remove(espejoFantastico).isEmpty())
+				{(self.artefactosEnUso()).remove(espejoFantastico).max({_artefacto=>self.sumaDeLuchaYHechiceria(_artefacto)})}
+				else{ }
+	}
+	method sumaDeLuchaYHechiceria(objeto){
+		return objeto.puntosDeLucha(objeto) + objeto.puntosDeHechiceria(objeto)
 	}
 }
 
@@ -70,7 +81,7 @@ object espadaDelDestino{
 	method puntosDeHechiceria(objeto){
 		return 0
 	}
-	method puntosDeLucha(){
+	method puntosDeLucha(objeto){
 		return 3
 	}
 }
@@ -78,7 +89,7 @@ object libroDeHechizos{
 	method puntosDeHechiceria(objeto){
 		return objeto.hechiceriaBase()
 	}
-	method puntosDeLucha(){
+	method puntosDeLucha(objeto){
 		return 0
 	}
 }
@@ -86,12 +97,21 @@ object collarDivino{
 	method puntosDeHechiceria(objeto){
 		return 1
 	}
-	method puntosDeLucha(){
+	method puntosDeLucha(objeto){
 		return 1
 	}	
 }
 
 //------Artefactos avanzados------
+
+object espejoFantastico{
+	method puntosDeHechiceria(objeto){
+		return (objeto.mejorArtefacto()).puntosDeHechiceria(objeto)
+	}
+	method puntosDeLucha(objeto){
+		return (objeto.mejorArtefacto()).puntosDeLucha(objeto)
+	}
+}
 
 object armadura{
 	var refuerzo= ninguna
@@ -102,7 +122,7 @@ object armadura{
 	method puntosDeHechiceria(objeto){
 		return refuerzo.hechiceria(objeto.hechiceriaBase())
 	}
-	method puntosDeLucha(){
+	method puntosDeLucha(objeto){
 		return 2 + refuerzo.lucha()
 	}
 }
