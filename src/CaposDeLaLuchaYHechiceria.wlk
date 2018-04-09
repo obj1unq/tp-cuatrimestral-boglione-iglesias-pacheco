@@ -43,11 +43,16 @@ object rolando{
 		return artefactos
 	}
 	method mejorArtefacto(){
-		return if (!(self.artefactosEnUso()).remove(espejoFantastico).isEmpty())
-				{(self.artefactosEnUso()).remove(espejoFantastico).max({_artefacto=>_artefacto.sumaDeLuchaYHechiceria(self)})}
-				else{ artefactoCero}
+		return if (self.artefactosSinEspejo().isEmpty())
+				{ artefactoCero}
+				else 
+					{self.artefactosSinEspejo().max({_artefacto=>_artefacto.sumaDeLuchaYHechiceria(self)})}
 	}
-	
+	method artefactosSinEspejo(){
+		var _artefactosEnUso = self.artefactosEnUso().copy()
+		_artefactosEnUso.remove(espejoFantastico)
+		return _artefactosEnUso
+	}
 }
 
 //------Bandos------
