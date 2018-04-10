@@ -79,6 +79,7 @@ object bandoDelSur {
 }
 
 //------Artefactos------
+
 object artefactoCero{
 	method puntosDeHechiceria(objeto){
 		return 0

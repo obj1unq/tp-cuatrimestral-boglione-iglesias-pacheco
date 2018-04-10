@@ -73,6 +73,34 @@ test "rolando obtiene una armadura sin refuerzos" {
 	assert.equals(1, rolando.puntosDeHechiceriaTotal())
 }
 
+test "rolando obtiene el collar divino y el espejo fantastico" {
+	rolando.obtenerArtefacto(collarDivino)
+	rolando.obtenerArtefacto(espejoFantastico)
+	assert.equals(5, rolando.puntosDeLuchaTotal())
+	assert.equals(3, rolando.puntosDeHechiceriaTotal())
+}
+
+test "rolando obtiene el libro de hechizos y el espejo fantastico" {
+	rolando.obtenerArtefacto(libroDeHechizos)
+	rolando.obtenerArtefacto(espejoFantastico)
+	assert.equals(3, rolando.puntosDeLuchaTotal())
+	assert.equals(3, rolando.puntosDeHechiceriaTotal())
+}
+
+test "rolando obtiene el collar divino, la espada del destino y el espejo fantastico" {
+	rolando.obtenerArtefacto(collarDivino)
+	rolando.obtenerArtefacto(espadaDelDestino)
+	rolando.obtenerArtefacto(espejoFantastico)
+	assert.equals(10, rolando.puntosDeLuchaTotal())
+	assert.equals(2, rolando.puntosDeHechiceriaTotal())
+}
+
+test "rolando obtiene solo el espejo fantastico" {
+	rolando.obtenerArtefacto(espejoFantastico)
+	assert.equals(3, rolando.puntosDeLuchaTotal())
+	assert.equals(1, rolando.puntosDeHechiceriaTotal())
+}
+
 test "rolando encuentra un cofrecito de oro" {
 	rolando.encontrarElemento(cofrecitoDeOro)
 	assert.equals(100, bandoDelSur.tesoro())
