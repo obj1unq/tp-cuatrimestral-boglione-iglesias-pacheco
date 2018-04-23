@@ -8,14 +8,14 @@ object rolando{
 	var luchaBase = 3
 	var hechiceriaBase = 1
 	var artefactos = #{}
-	
+	var bando = bandoDelSur
 	
 	method incValorBaseDeLucha() {
 		luchaBase += 1
 	}
 	method incValorBaseDeHechiceria() {
 		hechiceriaBase += 1
-	}
+	} 
 	
 	method obtenerArtefacto(_artefacto){
 		artefactos.add(_artefacto)
@@ -35,11 +35,12 @@ object rolando{
 	method puntosDeHechiceriaTotal(){
 		return hechiceriaBase + self.puntosDeHechiceriaArtefactos()
 	}
-	
+		method cambiarBando(_bando){ //Comienza siendo del sur
+			bando = _bando
+		}
 	method encontrarElemento(elemento) {
-		// TODO	 Bando debería ser una variable del objeto rolando, evitar la referencia directa.
-		bandoDelSur.aniadirTesoro(elemento.tesoro())
-		bandoDelSur.aniadirMateriales(elemento.materiales())
+		bando.aniadirTesoro(elemento.tesoro())
+		bando.aniadirMateriales(elemento.materiales())
 		
 		// FIXME Este código es muy específico del viejo sabio y no está aprovechando bien el polimorfismo.
 		luchaBase += elemento.puntosDeLucha()
