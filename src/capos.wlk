@@ -1,3 +1,7 @@
+import bandos.*
+import artefactos.*
+import elementos.*
+
 //------Capos------
 
 object rolando{
