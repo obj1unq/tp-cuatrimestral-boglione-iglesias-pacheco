@@ -26,8 +26,8 @@ object espadaDelDestino{
 }
 object libroDeHechizos{
 	// TODO ¿Por qué el nombre es "objeto" y no "capo"?
-	method puntosDeHechiceria(objeto){
-		return objeto.hechiceriaBase()
+	method puntosDeHechiceria(capo){
+		return capo.hechiceriaBase()
 	}
 	method puntosDeLucha(objeto){
 		return 0
