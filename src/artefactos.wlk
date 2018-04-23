@@ -1,64 +1,63 @@
 //------Artefactos------
 
 object artefactoCero{
-	method puntosDeHechiceria(objeto){
+	method puntosDeHechiceria(capo){
 		return 0
 	}
-	method puntosDeLucha(objeto){
+	method puntosDeLucha(capo){
 		return 0
 	}
 	
 	// TODO Código repetido
-	method sumaDeLuchaYHechiceria(objeto){
-		return self.puntosDeLucha(objeto) + self.puntosDeHechiceria(objeto)
+	method sumaDeLuchaYHechiceria(capo){
+		return self.puntosDeLucha(capo) + self.puntosDeHechiceria(capo)
 	}
 }
 object espadaDelDestino{
-	method puntosDeHechiceria(objeto){
+	method puntosDeHechiceria(capo){
 		return 0
 	}
-	method puntosDeLucha(objeto){
+	method puntosDeLucha(capo){
 		return 3
 	}
-	method sumaDeLuchaYHechiceria(objeto){
-		return self.puntosDeLucha(objeto) + self.puntosDeHechiceria(objeto)
+	method sumaDeLuchaYHechiceria(capo){
+		return self.puntosDeLucha(capo) + self.puntosDeHechiceria(capo)
 	}
 }
 object libroDeHechizos{
-	// TODO ¿Por qué el nombre es "objeto" y no "capo"?
 	method puntosDeHechiceria(capo){
 		return capo.hechiceriaBase()
 	}
-	method puntosDeLucha(objeto){
+	method puntosDeLucha(capo){
 		return 0
 	}
-	method sumaDeLuchaYHechiceria(objeto){
-		return self.puntosDeLucha(objeto) + self.puntosDeHechiceria(objeto)
+	method sumaDeLuchaYHechiceria(capo){
+		return self.puntosDeLucha(capo) + self.puntosDeHechiceria(capo)
 	}
 }
 object collarDivino{
-	method puntosDeHechiceria(objeto){
+	method puntosDeHechiceria(capo){
 		return 1
 	}
-	method puntosDeLucha(objeto){
+	method puntosDeLucha(capo){
 		return 1
 	}
-	method sumaDeLuchaYHechiceria(objeto){
-		return self.puntosDeLucha(objeto) + self.puntosDeHechiceria(objeto)
+	method sumaDeLuchaYHechiceria(capo){
+		return self.puntosDeLucha(capo) + self.puntosDeHechiceria(capo)
 	}	
 }
 
 //------Artefactos avanzados------
 
 object espejoFantastico{
-	method puntosDeHechiceria(objeto){
-		return (objeto.mejorArtefacto()).puntosDeHechiceria(objeto)
+	method puntosDeHechiceria(capo){
+		return (capo.mejorArtefacto()).puntosDeHechiceria(capo)
 	}
-	method puntosDeLucha(objeto){
-		return (objeto.mejorArtefacto()).puntosDeLucha(objeto)
+	method puntosDeLucha(capo){
+		return (capo.mejorArtefacto()).puntosDeLucha(capo)
 	}
-	method sumaDeLuchaYHechiceria(objeto){
-		return self.puntosDeLucha(objeto) + self.puntosDeHechiceria(objeto)
+	method sumaDeLuchaYHechiceria(capo){
+		return self.puntosDeLucha(capo) + self.puntosDeHechiceria(capo)
 	}
 }
 
@@ -68,14 +67,14 @@ object armadura{
 	method nuevoRefuerzo(_refuerzo){
 		refuerzo=_refuerzo
 	}
-	method puntosDeHechiceria(objeto){
-		return refuerzo.hechiceria(objeto.hechiceriaBase())
+	method puntosDeHechiceria(capo){
+		return refuerzo.hechiceria(capo.hechiceriaBase())
 	}
-	method puntosDeLucha(objeto){
+	method puntosDeLucha(capo){
 		return 2 + refuerzo.lucha()
 	}
-	method sumaDeLuchaYHechiceria(objeto){
-		return self.puntosDeLucha(objeto) + self.puntosDeHechiceria(objeto)
+	method sumaDeLuchaYHechiceria(capo){
+		return self.puntosDeLucha(capo) + self.puntosDeHechiceria(capo)
 	}
 }
 
