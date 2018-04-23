@@ -17,12 +17,11 @@ object rolando{
 		hechiceriaBase += 1
 	}
 	
-	// ¿Por qué la A mayúscula, respetemos las convenciones.
-	method obtenerArtefacto(_Artefacto){
-		artefactos.add(_Artefacto)
+	method obtenerArtefacto(_artefacto){
+		artefactos.add(_artefacto)
 	}
-	method puntosDeLuchaArtefactos() = artefactos.sum({_Artefacto => _Artefacto.puntosDeLucha(self)})
-	method puntosDeHechiceriaArtefactos() = artefactos.sum({_Artefacto => _Artefacto.puntosDeHechiceria(self)})
+	method puntosDeLuchaArtefactos() = artefactos.sum({_artefacto => _artefacto.puntosDeLucha(self)})
+	method puntosDeHechiceriaArtefactos() = artefactos.sum({_artefacto => _artefacto.puntosDeHechiceria(self)})
 	
 	method luchaBase(){
 		return luchaBase

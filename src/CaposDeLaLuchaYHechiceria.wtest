@@ -1,4 +1,7 @@
-import CaposDeLaLuchaYHechiceria.*
+import capos.*
+import bandos.*
+import artefactos.*
+import elementos.*
 
 test "rolando comienza con 3 tres puntos basicos de lucha y 1 de hechiceria" {
 	assert.equals(3, rolando.luchaBase())

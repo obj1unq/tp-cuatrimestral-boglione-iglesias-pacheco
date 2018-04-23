@@ -49,7 +49,6 @@ object collarDivino{
 }
 
 //------Artefactos avanzados------
-// TODO Es demasiado largo este archivo, deberían dividirlo de alguna manera
 
 object espejoFantastico{
 	method puntosDeHechiceria(objeto){
