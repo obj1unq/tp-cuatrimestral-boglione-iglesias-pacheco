@@ -1,22 +1,20 @@
 //------Elementos------
 
 object cofrecitoDeOro {
-	method tesoro() = 100
-	method materiales() = 0
-	method puntosDeLucha() = 0
-	method puntosDeHechiceria() = 0
+	method seEncuentraCon(capo) {
+		capo.bando().aniadirTesoro(100)
+	}
 }
 
 object cumuloDeCarbon {
-	method tesoro() = 0
-	method materiales() = 50
-	method puntosDeLucha() = 0
-	method puntosDeHechiceria() = 0
+	method seEncuentraCon(capo) {
+		capo.bando().aniadirMateriales(50)
+	}
 }
 
 object viejoSabio {
-	method tesoro() = 0
-	method materiales() = 0
-	method puntosDeLucha() = 1
-	method puntosDeHechiceria() = 1
+	method seEncuentraCon(capo) {
+		capo.incLuchaBase()
+		capo.incHechiceriaBase()
+	}
 }

@@ -10,60 +10,63 @@ object rolando{
 	var artefactos = #{}
 	var bando = bandoDelSur
 	
-	method incValorBaseDeLucha() {
+	method incLuchaBase() {
 		luchaBase += 1
 	}
-	method incValorBaseDeHechiceria() {
+	method incHechiceriaBase() {
 		hechiceriaBase += 1
 	} 
 	
 	method obtenerArtefacto(_artefacto){
 		artefactos.add(_artefacto)
 	}
-	method puntosDeLuchaArtefactos() = artefactos.sum({_artefacto => _artefacto.puntosDeLucha(self)})
-	method puntosDeHechiceriaArtefactos() = artefactos.sum({_artefacto => _artefacto.puntosDeHechiceria(self)})
+	
+	method luchaArtefactos() = artefactos.sum({_artefacto => _artefacto.lucha(self)})
+	method hechiceriaArtefactos() = artefactos.sum({_artefacto => _artefacto.hechiceria(self)})
 	
 	method luchaBase(){
 		return luchaBase
 	}
+	
 	method hechiceriaBase(){
 		return hechiceriaBase
 	}
-	method puntosDeLuchaTotal(){
-		return luchaBase +  self.puntosDeLuchaArtefactos()
-	}
-	method puntosDeHechiceriaTotal(){
-		return hechiceriaBase + self.puntosDeHechiceriaArtefactos()
-	}
-		method cambiarBando(_bando){ //Comienza siendo del sur
-			bando = _bando
-		}
-	method encontrarElemento(elemento) {
-		bando.aniadirTesoro(elemento.tesoro())
-		bando.aniadirMateriales(elemento.materiales())
-		
-		// FIXME Este código es muy específico del viejo sabio y no está aprovechando bien el polimorfismo.
-		luchaBase += elemento.puntosDeLucha()
-		hechiceriaBase += elemento.puntosDeHechiceria()
+	
+	method luchaTotal(){
+		return luchaBase +  self.luchaArtefactos()
 	}
 	
-	// TODO Corregir nombre, es confuso. ¿Qué significa "en uso"? ¿Hay artefactos que no están en uso?
-	method artefactosEnUso(){
+	method hechiceriaTotal(){
+		return hechiceriaBase + self.hechiceriaArtefactos()
+	}
+	
+	method cambiarBando(_bando){ //Comienza siendo del sur
+		bando = _bando
+	}
+	method bando() {
+		return bando
+	}
+	
+	method encontrarElemento(elemento) {
+		elemento.seEncuentraCon(self)
+	}
+	
+	method artefactos(){
 		return artefactos
 	}
 
 	// TODO Esta responsabilidad le caería mejor al espejo y se evitaría que rolando conozca a un elemento específico.
 	method mejorArtefacto(){
 		return if (self.artefactosSinEspejo().isEmpty())
-				{ artefactoCero}
+				{artefactoCero}
 				else 
 					{self.artefactosSinEspejo().max({_artefacto=>_artefacto.sumaDeLuchaYHechiceria(self)})}
 	}
 
 	// TODO Esta responsabilidad le caería mejor al espejo y se evitaría que rolando conozca a un elemento específico.
 	method artefactosSinEspejo(){
-		var _artefactosEnUso = self.artefactosEnUso().copy()
-		_artefactosEnUso.remove(espejoFantastico)
-		return _artefactosEnUso
+		var _artefactos = self.artefactos().copy()
+		_artefactos.remove(espejoFantastico)
+		return _artefactos
 	}
 }

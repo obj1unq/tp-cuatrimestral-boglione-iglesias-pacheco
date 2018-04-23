@@ -1,63 +1,63 @@
 //------Artefactos------
 
 object artefactoCero{
-	method puntosDeHechiceria(capo){
+	method hechiceria(capo){
 		return 0
 	}
-	method puntosDeLucha(capo){
+	method lucha(capo){
 		return 0
 	}
 	
 	// TODO Código repetido
 	method sumaDeLuchaYHechiceria(capo){
-		return self.puntosDeLucha(capo) + self.puntosDeHechiceria(capo)
+		return self.lucha(capo) + self.hechiceria(capo)
 	}
 }
 object espadaDelDestino{
-	method puntosDeHechiceria(capo){
+	method hechiceria(capo){
 		return 0
 	}
-	method puntosDeLucha(capo){
+	method lucha(capo){
 		return 3
 	}
 	method sumaDeLuchaYHechiceria(capo){
-		return self.puntosDeLucha(capo) + self.puntosDeHechiceria(capo)
+		return self.lucha(capo) + self.hechiceria(capo)
 	}
 }
 object libroDeHechizos{
-	method puntosDeHechiceria(capo){
+	method hechiceria(capo){
 		return capo.hechiceriaBase()
 	}
-	method puntosDeLucha(capo){
+	method lucha(capo){
 		return 0
 	}
 	method sumaDeLuchaYHechiceria(capo){
-		return self.puntosDeLucha(capo) + self.puntosDeHechiceria(capo)
+		return self.lucha(capo) + self.hechiceria(capo)
 	}
 }
 object collarDivino{
-	method puntosDeHechiceria(capo){
+	method hechiceria(capo){
 		return 1
 	}
-	method puntosDeLucha(capo){
+	method lucha(capo){
 		return 1
 	}
 	method sumaDeLuchaYHechiceria(capo){
-		return self.puntosDeLucha(capo) + self.puntosDeHechiceria(capo)
+		return self.lucha(capo) + self.hechiceria(capo)
 	}	
 }
 
 //------Artefactos avanzados------
 
 object espejoFantastico{
-	method puntosDeHechiceria(capo){
-		return (capo.mejorArtefacto()).puntosDeHechiceria(capo)
+	method hechiceria(capo){
+		return (capo.mejorArtefacto()).hechiceria(capo)
 	}
-	method puntosDeLucha(capo){
-		return (capo.mejorArtefacto()).puntosDeLucha(capo)
+	method lucha(capo){
+		return (capo.mejorArtefacto()).lucha(capo)
 	}
 	method sumaDeLuchaYHechiceria(capo){
-		return self.puntosDeLucha(capo) + self.puntosDeHechiceria(capo)
+		return self.lucha(capo) + self.hechiceria(capo)
 	}
 }
 
@@ -67,14 +67,14 @@ object armadura{
 	method nuevoRefuerzo(_refuerzo){
 		refuerzo=_refuerzo
 	}
-	method puntosDeHechiceria(capo){
+	method hechiceria(capo){
 		return refuerzo.hechiceria(capo.hechiceriaBase())
 	}
-	method puntosDeLucha(capo){
+	method lucha(capo){
 		return 2 + refuerzo.lucha()
 	}
 	method sumaDeLuchaYHechiceria(capo){
-		return self.puntosDeLucha(capo) + self.puntosDeHechiceria(capo)
+		return self.lucha(capo) + self.hechiceria(capo)
 	}
 }
 
