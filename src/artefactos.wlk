@@ -51,13 +51,25 @@ object collarDivino{
 
 object espejoFantastico{
 	method hechiceria(capo){
-		return (capo.mejorArtefacto()).hechiceria(capo)
+		return (self.mejorArtefacto(capo)).hechiceria(capo)
 	}
 	method lucha(capo){
-		return (capo.mejorArtefacto()).lucha(capo)
+		return (self.mejorArtefacto(capo)).lucha(capo)
 	}
 	method sumaDeLuchaYHechiceria(capo){
 		return self.lucha(capo) + self.hechiceria(capo)
+	}
+	
+	method mejorArtefacto(capo){
+		return if (self.artefactosSinEspejo(capo).isEmpty())
+			{artefactoCero}
+		else 
+			{self.artefactosSinEspejo(capo).max({_artefacto=>_artefacto.sumaDeLuchaYHechiceria(capo)})}
+	}
+	method artefactosSinEspejo(capo){
+		var _artefactos = capo.artefactos().copy()
+		_artefactos.remove(self)
+		return _artefactos
 	}
 }
 

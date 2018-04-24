@@ -56,17 +56,17 @@ object rolando{
 	}
 
 	// TODO Esta responsabilidad le caería mejor al espejo y se evitaría que rolando conozca a un elemento específico.
-	method mejorArtefacto(){
-		return if (self.artefactosSinEspejo().isEmpty())
-				{artefactoCero}
-				else 
-					{self.artefactosSinEspejo().max({_artefacto=>_artefacto.sumaDeLuchaYHechiceria(self)})}
-	}
+//	method mejorArtefacto(){
+//		return if (self.artefactosSinEspejo().isEmpty())
+//				{artefactoCero}
+//				else 
+//					{self.artefactosSinEspejo().max({_artefacto=>_artefacto.sumaDeLuchaYHechiceria(self)})}
+//	}
 
 	// TODO Esta responsabilidad le caería mejor al espejo y se evitaría que rolando conozca a un elemento específico.
-	method artefactosSinEspejo(){
-		var _artefactos = self.artefactos().copy()
-		_artefactos.remove(espejoFantastico)
-		return _artefactos
-	}
+//	method artefactosSinEspejo(){
+//		var _artefactos = self.artefactos().copy()
+//		_artefactos.remove(espejoFantastico)
+//		return _artefactos
+//	}
 }
