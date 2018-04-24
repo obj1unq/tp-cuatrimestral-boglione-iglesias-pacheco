@@ -1,0 +1,46 @@
+import capos.*
+import bandos.*
+import artefactos.*
+import elementos.*
+
+test "un test"{
+	
+	var sur
+	sur = new Bando()
+	sur.tesoro(100)
+	sur.reservaDeMateriales(50)
+	
+	var norte
+	norte = new Bando()
+	norte.tesoro(200)
+	norte.reservaDeMateriales(200)
+	
+	var rolando
+	rolando = new Capo()
+	rolando.bando(sur)
+	rolando.hechiceriaBase(3)
+	rolando.luchaBase(1)
+	rolando.artefactos(#{})
+	
+	var caterina
+	caterina = new Capo()
+	caterina.bando(sur)
+	caterina.hechiceriaBase(1)
+	caterina.luchaBase(2)
+	caterina.artefactos(#{espadaDelDestino})
+	
+	var archibaldo
+	archibaldo = new Capo()
+	archibaldo.bando(norte)
+	archibaldo.hechiceriaBase(3)
+	archibaldo.luchaBase(3)
+	archibaldo.artefactos(#{collarDivino,espejoFantastico})
+	
+	//assert.that(rolando.esAmigoDe(caterina))
+	//assert.notThat(rolando.esAmigoDe(archibaldo))
+	
+	//archibaldo.encontrarElemento(cofrecitoDeOro)
+	//assert.equals(300,norte.tesoro())
+	
+
+}
