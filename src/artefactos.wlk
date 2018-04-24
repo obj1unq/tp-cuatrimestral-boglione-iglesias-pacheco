@@ -8,11 +8,11 @@ object artefactoCero{
 		return 0
 	}
 	
-	// TODO Código repetido
 	method sumaDeLuchaYHechiceria(capo){
 		return self.lucha(capo) + self.hechiceria(capo)
 	}
 }
+
 object espadaDelDestino{
 	method hechiceria(capo){
 		return 0
@@ -47,7 +47,10 @@ object collarDivino{
 	}	
 }
 
+
+
 //------Artefactos avanzados------
+
 
 object espejoFantastico{
 	method hechiceria(capo){
@@ -73,7 +76,7 @@ object espejoFantastico{
 	}
 }
 
-object armadura{
+class Armadura{
 	var refuerzo= ninguna
 	
 	method nuevoRefuerzo(_refuerzo){
