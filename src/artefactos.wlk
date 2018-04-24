@@ -14,6 +14,9 @@ object artefactoCero{
 }
 
 object espadaDelDestino{
+	const property nombre ="Espada del Destino"
+	const property imagen ="espada.png"
+	
 	method hechiceria(capo){
 		return 0
 	}
@@ -25,6 +28,9 @@ object espadaDelDestino{
 	}
 }
 object libroDeHechizos{
+	const property nombre ="Libro de Hechizos"
+	const property imagen ="libro.png"
+	
 	method hechiceria(capo){
 		return capo.hechiceriaBase()
 	}
@@ -36,6 +42,9 @@ object libroDeHechizos{
 	}
 }
 object collarDivino{
+	const property nombre ="Collar Divino"
+	const property imagen ="collar.png"
+	
 	method hechiceria(capo){
 		return 1
 	}
