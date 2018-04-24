@@ -2,7 +2,7 @@ import capos.*
 import bandos.*
 import artefactos.*
 import elementos.*
-
+//nuevo
 test "un test"{
 	
 	var sur

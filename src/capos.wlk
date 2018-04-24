@@ -1,8 +1,9 @@
 import bandos.*
 import artefactos.*
 import elementos.*
-
+//nuevo
 //------Capos------
+
 class Capo {
 
 	var property luchaBase = null

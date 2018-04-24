@@ -1,5 +1,5 @@
 //------Bandos------
-
+//nuevo
 class Bando {
 	var property tesoro = null
 	var property reservaDeMateriales = null
