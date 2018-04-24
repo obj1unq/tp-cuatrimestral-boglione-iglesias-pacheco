@@ -2,9 +2,9 @@ import capos.*
 import bandos.*
 import artefactos.*
 import elementos.*
-//nuevo
+
 test "un test"{
-	
+	var cofreOro = new CofrecitoDeOro()
 	var sur
 	sur = new Bando()
 	sur.tesoro(100)
@@ -36,11 +36,11 @@ test "un test"{
 	archibaldo.luchaBase(3)
 	archibaldo.artefactos(#{collarDivino,espejoFantastico})
 	
-	//assert.that(rolando.esAmigoDe(caterina))
-	//assert.notThat(rolando.esAmigoDe(archibaldo))
+	assert.that(rolando.esAmigoDe(caterina))
+	assert.notThat(rolando.esAmigoDe(archibaldo))
 	
-	//archibaldo.encontrarElemento(cofrecitoDeOro)
-	//assert.equals(300,norte.tesoro())
+	archibaldo.encontrarElemento(cofreOro)
+	assert.equals(300,norte.tesoro())
 	
 
 }
