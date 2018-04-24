@@ -3,119 +3,145 @@ import bandos.*
 import artefactos.*
 import elementos.*
 
-test "rolando comienza con 3 tres puntos basicos de lucha y 1 de hechiceria" {
-	assert.equals(3, rolando.luchaBase())
-	assert.equals(1, rolando.hechiceriaBase())
-}
+describe "tests para rolando" {
+	var sur
+	var rolando
+	var armaduraCotaDeMalla
+	var armaduraBendicion
+	var armaduraHechizo
+	var armadura
+	var cofrecitoDeOro
+	var cumuloDeCarbon
+	var viejoSabio
+	
+	fixture {
+		sur = new Bando()
+		sur.tesoro(0)
+		sur.reservaDeMateriales(0)
+		
+		rolando = new Capo()
+		rolando.bando(sur)
+		rolando.hechiceriaBase(1)
+		rolando.luchaBase(3)
+		rolando.artefactos(#{})
+		
+		armaduraCotaDeMalla = new Armadura(refuerzo = cotaDeMalla)
+		armaduraBendicion = new Armadura(refuerzo = bendicion)
+		armaduraHechizo = new Armadura(refuerzo = hechizo)
+		armadura = new Armadura()
+		
+		cofrecitoDeOro = new CofrecitoDeOro()
+		cumuloDeCarbon = new CumuloDeCarbon()
+		viejoSabio = new ViejoSabio()
+	}
+	
+	test "rolando comienza con 3 tres puntos basicos de lucha y 1 de hechiceria" {
+		assert.equals(3, rolando.luchaBase())
+		assert.equals(1, rolando.hechiceriaBase())
+	}
 
-test "rolando incrementa los puntos basicos de hechiceria" {
-	rolando.incHechiceriaBase()
-	assert.equals(3, rolando.luchaBase())
-	assert.equals(2, rolando.hechiceriaBase())
-}
+	test "rolando incrementa los puntos basicos de hechiceria" {
+		rolando.incHechiceriaBase(1)
+		assert.equals(3, rolando.luchaBase())
+		assert.equals(2, rolando.hechiceriaBase())
+	}
 
-test "rolando obtiene el collar divino" {
-	rolando.incHechiceriaBase()
-	rolando.obtenerArtefacto(collarDivino)
-	assert.equals(4, rolando.luchaTotal())
-	assert.equals(3, rolando.hechiceriaTotal())
-}
+	test "rolando obtiene el collar divino" {
+		rolando.incHechiceriaBase(1)
+		rolando.obtenerArtefacto(collarDivino)
+		assert.equals(4, rolando.luchaTotal())
+		assert.equals(3, rolando.hechiceriaTotal())
+	}
 
-test "rolando obtiene el libro de hechizos" {
-	rolando.incHechiceriaBase()
-	rolando.obtenerArtefacto(collarDivino)
-	rolando.obtenerArtefacto(libroDeHechizos)
-	assert.equals(4, rolando.luchaTotal())
-	assert.equals(5, rolando.hechiceriaTotal())
-}
+	test "rolando obtiene el libro de hechizos" {
+		rolando.incHechiceriaBase(1)
+		rolando.obtenerArtefacto(collarDivino)
+		rolando.obtenerArtefacto(libroDeHechizos)
+		assert.equals(4, rolando.luchaTotal())
+		assert.equals(5, rolando.hechiceriaTotal())
+	}
 
-test "rolando obtiene la espada del destino" {
-	rolando.incHechiceriaBase()
-	rolando.obtenerArtefacto(collarDivino)
-	rolando.obtenerArtefacto(libroDeHechizos)
-	rolando.obtenerArtefacto(espadaDelDestino)
-	assert.equals(7, rolando.luchaTotal())
-	assert.equals(5, rolando.hechiceriaTotal())
-}
+	test "rolando obtiene la espada del destino" {
+		rolando.incHechiceriaBase(1)
+		rolando.obtenerArtefacto(collarDivino)
+		rolando.obtenerArtefacto(libroDeHechizos)
+		rolando.obtenerArtefacto(espadaDelDestino)
+		assert.equals(7, rolando.luchaTotal())
+		assert.equals(5, rolando.hechiceriaTotal())
+	}
 
-test "rolando obtiene una armadura de cota de malla" {
-	armadura.nuevoRefuerzo(cotaDeMalla)
-	rolando.obtenerArtefacto(armadura)
-	assert.equals(6, rolando.luchaTotal())
-	assert.equals(1, rolando.hechiceriaTotal())
-}
+	test "rolando obtiene una armadura de cota de malla" {
+		rolando.obtenerArtefacto(armaduraCotaDeMalla)
+		assert.equals(6, rolando.luchaTotal())
+		assert.equals(1, rolando.hechiceriaTotal())
+	}
 
-test "rolando obtiene una armadura con bendicion" {
-	armadura.nuevoRefuerzo(bendicion)
-	rolando.obtenerArtefacto(armadura)
-	assert.equals(5, rolando.luchaTotal())
-	assert.equals(2, rolando.hechiceriaTotal())
-}
+	test "rolando obtiene una armadura con bendicion" {
+		rolando.obtenerArtefacto(armaduraBendicion)
+		assert.equals(5, rolando.luchaTotal())
+		assert.equals(2, rolando.hechiceriaTotal())
+	}
 
-test "rolando obtiene una armadura con hechizo" {
-	armadura.nuevoRefuerzo(hechizo)
-	rolando.obtenerArtefacto(armadura)
-	assert.equals(5, rolando.luchaTotal())
-	assert.equals(1, rolando.hechiceriaTotal())
-}
+	test "rolando obtiene una armadura con hechizo" {
+		rolando.obtenerArtefacto(armaduraHechizo)
+		assert.equals(5, rolando.luchaTotal())
+		assert.equals(1, rolando.hechiceriaTotal())
+	}
 
-test "rolando obtiene una armadura con hechizo 2" {
-	rolando.incHechiceriaBase()
-	rolando.incHechiceriaBase()
-	rolando.incHechiceriaBase()
-	armadura.nuevoRefuerzo(hechizo)
-	rolando.obtenerArtefacto(armadura)
-	assert.equals(5, rolando.luchaTotal())
-	assert.equals(6, rolando.hechiceriaTotal())
-}
+	test "rolando obtiene una armadura con hechizo 2" {
+		rolando.incHechiceriaBase(3)
+		rolando.obtenerArtefacto(armaduraHechizo)
+		assert.equals(5, rolando.luchaTotal())
+		assert.equals(6, rolando.hechiceriaTotal())
+	}
 
-test "rolando obtiene una armadura sin refuerzos" {
-	armadura.nuevoRefuerzo(ninguna)
-	rolando.obtenerArtefacto(armadura)
-	assert.equals(5, rolando.luchaTotal())
-	assert.equals(1, rolando.hechiceriaTotal())
-}
+	test "rolando obtiene una armadura sin refuerzos" {
+		rolando.obtenerArtefacto(armadura)
+		assert.equals(5, rolando.luchaTotal())
+		assert.equals(1, rolando.hechiceriaTotal())
+	}
 
-test "rolando obtiene el collar divino y el espejo fantastico" {
-	rolando.obtenerArtefacto(collarDivino)
-	rolando.obtenerArtefacto(espejoFantastico)
-	assert.equals(5, rolando.luchaTotal())
-	assert.equals(3, rolando.hechiceriaTotal())
-}
+	test "rolando obtiene el collar divino y el espejo fantastico" {
+		rolando.obtenerArtefacto(collarDivino)
+		rolando.obtenerArtefacto(espejoFantastico)
+		assert.equals(5, rolando.luchaTotal())
+		assert.equals(3, rolando.hechiceriaTotal())
+	}
 
-test "rolando obtiene el libro de hechizos y el espejo fantastico" {
-	rolando.obtenerArtefacto(libroDeHechizos)
-	rolando.obtenerArtefacto(espejoFantastico)
-	assert.equals(3, rolando.luchaTotal())
-	assert.equals(3, rolando.hechiceriaTotal())
-}
+	test "rolando obtiene el libro de hechizos y el espejo fantastico" {
+		rolando.obtenerArtefacto(libroDeHechizos)
+		rolando.obtenerArtefacto(espejoFantastico)
+		assert.equals(3, rolando.luchaTotal())
+		assert.equals(3, rolando.hechiceriaTotal())
+	}
 
-test "rolando obtiene el collar divino, la espada del destino y el espejo fantastico" {
-	rolando.obtenerArtefacto(collarDivino)
-	rolando.obtenerArtefacto(espadaDelDestino)
-	rolando.obtenerArtefacto(espejoFantastico)
-	assert.equals(10, rolando.luchaTotal())
-	assert.equals(2, rolando.hechiceriaTotal())
-}
+	test "rolando obtiene el collar divino, la espada del destino y el espejo fantastico" {
+		rolando.obtenerArtefacto(collarDivino)
+		rolando.obtenerArtefacto(espadaDelDestino)
+		rolando.obtenerArtefacto(espejoFantastico)
+		assert.equals(10, rolando.luchaTotal())
+		assert.equals(2, rolando.hechiceriaTotal())
+	}
 
-test "rolando obtiene solo el espejo fantastico" {
-	rolando.obtenerArtefacto(espejoFantastico)
-	assert.equals(3, rolando.luchaTotal())
-	assert.equals(1, rolando.hechiceriaTotal())
-}
+	test "rolando obtiene solo el espejo fantastico" {
+		rolando.obtenerArtefacto(espejoFantastico)
+		assert.equals(3, rolando.luchaTotal())
+		assert.equals(1, rolando.hechiceriaTotal())
+	}
 
-test "rolando encuentra un cofrecito de oro" {
-	rolando.encontrarElemento(cofrecitoDeOro)
-	assert.equals(100, bandoDelSur.tesoro())
-}
+	test "rolando encuentra un cofrecito de oro" {
+		rolando.encontrarElemento(cofrecitoDeOro)
+		assert.equals(100, rolando.bando().tesoro())
+	}
 
-test "rolando encuentra un cumulo de carbon" {
-	rolando.encontrarElemento(cumuloDeCarbon)
-	assert.equals(50, bandoDelSur.reservaDeMateriales())
-}
+	test "rolando encuentra un cumulo de carbon" {
+		rolando.encontrarElemento(cumuloDeCarbon)
+		assert.equals(50, rolando.bando().reservaDeMateriales())
+	}
 
-test "rolando se encuentra con un viejo sabio" {
-	rolando.encontrarElemento(viejoSabio)
-	assert.equals(4, rolando.luchaBase())
-	assert.equals(2, rolando.hechiceriaBase())
+	test "rolando se encuentra con un viejo sabio" {
+		rolando.encontrarElemento(viejoSabio)
+		assert.equals(4, rolando.luchaBase())
+		assert.equals(2, rolando.hechiceriaBase())
+	}
 }
