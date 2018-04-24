@@ -11,12 +11,12 @@ class Capo {
 	var property artefactos = null
 	var property bando = null
 
-	method incLuchaBase() {
-		luchaBase += 1
+	method incLuchaBase(puntos) {
+		luchaBase += puntos
 	}
 
-	method incHechiceriaBase() {
-		hechiceriaBase += 1
+	method incHechiceriaBase(puntos) {
+		hechiceriaBase += puntos
 	}
 
 	method obtenerArtefacto(_artefacto) {
