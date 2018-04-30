@@ -10,14 +10,13 @@ class Capo {
 	var property hechiceriaBase = null
 	var property artefactos = null
 	var property bando = null
+	
 	//wollok game
 	var property imagen = null
 	var property nombre = null
 	var property posicion = null
+	method move(nuevaPosicion) { self.posicion(nuevaPosicion) }
 	
-	method move(nuevaPosicion) {
-		self.posicion(nuevaPosicion)
-	}
 	
 	method incLuchaBase(puntos) {
 		luchaBase += puntos
@@ -51,7 +50,7 @@ class Capo {
 		return hechiceriaBase + self.hechiceriaArtefactos()
 	}
 
-	method cambiarBando(_bando) { // Comienza siendo del sur
+	method cambiarBando(_bando) {
 		bando = _bando
 	}
 
@@ -71,5 +70,7 @@ class Capo {
 	method esAmigoDe(capo) {
 		return bando == capo.bando() 			
 	} 
+	
+	
 	
 }

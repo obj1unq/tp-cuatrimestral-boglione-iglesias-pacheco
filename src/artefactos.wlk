@@ -1,6 +1,6 @@
 //------Artefactos------
 
-object artefactoCero{
+object artefactoCero {
 	method hechiceria(capo){
 		return 0
 	}
@@ -13,9 +13,15 @@ object artefactoCero{
 	}
 }
 
-object espadaDelDestino{
+object espadaDelDestino {
+	//wollok game - tp2
 	const property nombre ="Espada del Destino"
 	const property imagen ="espada.png"
+	method llego(alguien) {
+		alguien.incLuchaBase(self.lucha(alguien))
+		alguien.incHechiceriaBase(self.hechiceria(alguien))
+		game.removeVisual(self)	
+	}
 	
 	method hechiceria(capo){
 		return 0
@@ -27,9 +33,16 @@ object espadaDelDestino{
 		return self.lucha(capo) + self.hechiceria(capo)
 	}
 }
-object libroDeHechizos{
+object libroDeHechizos {
+	//wollok game - tp2
 	const property nombre ="Libro de Hechizos"
 	const property imagen ="libro.png"
+	method llego(alguien) {
+		alguien.incLuchaBase(self.lucha(alguien))
+		alguien.incHechiceriaBase(self.hechiceria(alguien))
+		game.removeVisual(self)	
+	}
+	
 	
 	method hechiceria(capo){
 		return capo.hechiceriaBase()
@@ -41,10 +54,15 @@ object libroDeHechizos{
 		return self.lucha(capo) + self.hechiceria(capo)
 	}
 }
-object collarDivino{
+object collarDivino {
+	//wollok game - tp2
 	const property nombre ="Collar Divino"
 	const property imagen ="collar.png"
-	
+	method llego(alguien) {
+		alguien.incLuchaBase(self.lucha(alguien))
+		alguien.incHechiceriaBase(self.hechiceria(alguien))
+		game.removeVisual(self)	
+	}
 	method hechiceria(capo){
 		return 1
 	}
@@ -61,7 +79,7 @@ object collarDivino{
 //------Artefactos avanzados------
 
 
-object espejoFantastico{
+object espejoFantastico {
 	method hechiceria(capo){
 		return (self.mejorArtefacto(capo)).hechiceria(capo)
 	}
@@ -85,7 +103,7 @@ object espejoFantastico{
 	}
 }
 
-class Armadura{
+class Armadura {
 	var refuerzo= ninguna
 	
 	method nuevoRefuerzo(_refuerzo){
@@ -102,7 +120,7 @@ class Armadura{
 	}
 }
 
-object cotaDeMalla{
+object cotaDeMalla {
 	method lucha(){
 		return 1
 	}
@@ -110,7 +128,7 @@ object cotaDeMalla{
 		return 0
 	}
 }
-object bendicion{
+object bendicion {
 	method lucha(){
 		return 0
 	}
@@ -118,7 +136,7 @@ object bendicion{
 		return 1
 	}
 }
-object hechizo{
+object hechizo {
 	method lucha(){
 		return 0
 	}
@@ -126,7 +144,7 @@ object hechizo{
 		return if(puntos>3){2} else{0}
 	}
 }
-object ninguna{
+object ninguna {
 	method lucha(){
 		return 0
 	}
