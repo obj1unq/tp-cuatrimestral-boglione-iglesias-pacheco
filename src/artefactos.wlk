@@ -20,6 +20,7 @@ object espadaDelDestino {
 	method llego(alguien) {
 		alguien.incLuchaBase(self.lucha(alguien))
 		alguien.incHechiceriaBase(self.hechiceria(alguien))
+		alguien.obtenerArtefacto(self)
 		game.removeVisual(self)	
 	}
 	
@@ -40,6 +41,7 @@ object libroDeHechizos {
 	method llego(alguien) {
 		alguien.incLuchaBase(self.lucha(alguien))
 		alguien.incHechiceriaBase(self.hechiceria(alguien))
+		alguien.obtenerArtefacto(self)
 		game.removeVisual(self)	
 	}
 	
@@ -61,6 +63,7 @@ object collarDivino {
 	method llego(alguien) {
 		alguien.incLuchaBase(self.lucha(alguien))
 		alguien.incHechiceriaBase(self.hechiceria(alguien))
+		alguien.obtenerArtefacto(self)
 		game.removeVisual(self)	
 	}
 	method hechiceria(capo){
@@ -105,6 +108,17 @@ object espejoFantastico {
 
 class Armadura {
 	var refuerzo= ninguna
+	
+	//wollok game
+	const property nombre ="Armadura"
+	const property imagen ="armadura.png"
+	method llego(alguien) {
+		alguien.incLuchaBase(self.lucha(alguien))
+		alguien.incHechiceriaBase(self.hechiceria(alguien))
+		alguien.obtenerArtefacto(self)
+		game.removeVisual(self)	
+	}
+	
 	
 	method nuevoRefuerzo(_refuerzo){
 		refuerzo=_refuerzo

@@ -16,6 +16,9 @@ class Capo {
 	var property nombre = null
 	var property posicion = null
 	method move(nuevaPosicion) { self.posicion(nuevaPosicion) }
+	method llego(alguien) {
+		self.encuentraCapo(alguien)
+	}
 	
 	
 	method incLuchaBase(puntos) {
@@ -65,11 +68,30 @@ class Capo {
 	method artefactos() {
 		return artefactos
 	}
+	
+	method luchaYHechiceriaTotal() {
+		return self.luchaTotal() + self.hechiceriaTotal()
+	}
 
 	//-----------------TP 2-------------------
 	method esAmigoDe(capo) {
-		return bando == capo.bando() 			
+		//Este seria rolando   Este el capo que se encuentra
+		return capo.bando() == self.bando() 			
 	} 
+	
+	method pelea(capo) {
+		//Este seria rolando              Este el capo que se encuentra
+		if(capo.luchaYHechiceriaTotal() > self.luchaYHechiceriaTotal()) {
+			game.removeVisual(self)
+		}else game.stop()	
+	}
+	
+	method encuentraCapo(capo) {
+		if(capo.esAmigoDe(self)) {
+			capo.artefactos().addAll(self.artefactos())
+			//hay que remover los artefactos del amigo de rolando?		
+		}else self.pelea(capo)
+	}
 	
 	
 	
