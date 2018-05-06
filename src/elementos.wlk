@@ -43,12 +43,25 @@ class ViejoSabio {
 	method llego(alguien) {
 		alguien.incLuchaBase(1)
 		game.removeVisual(self)	
-		alguien.inHechiceriaBase(1)
+		alguien.incHechiceriaBase(1)
 	}
 	
 	//este method se podria borrar
 	method seEncuentraCon(capo) {
 		capo.incLuchaBase(1)
 		capo.incHechiceriaBase(puntosHechiceria)
+	}
+}
+
+class Neblina {
+	const property enNeblinaHay = []
+	
+	//wollok game
+	const property nombre = "Neblina"
+	const property imagen = "neblina.png"
+	
+	method llego(alguien) {
+		enNeblinaHay.forEach({cosa => cosa.llego(alguien)})
+		game.removeVisual(self)
 	}
 }

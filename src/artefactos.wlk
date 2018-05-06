@@ -83,6 +83,16 @@ object collarDivino {
 
 
 object espejoFantastico {
+	//wollok game - tp2
+	const property nombre ="Espejo Fantastico"
+	const property imagen ="espejo.png"
+	method llego(alguien) {
+		alguien.incLuchaBase(self.lucha(alguien))
+		alguien.incHechiceriaBase(self.hechiceria(alguien))
+		alguien.obtenerArtefacto(self)
+		game.removeVisual(self)	
+	}
+	
 	method hechiceria(capo){
 		return (self.mejorArtefacto(capo)).hechiceria(capo)
 	}

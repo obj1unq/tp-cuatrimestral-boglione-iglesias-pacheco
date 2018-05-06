@@ -12,6 +12,9 @@ program caposGame {
 	armadura = new Armadura()
 	armadura.nuevoRefuerzo(bendicion)
 	
+	var armadura2
+	armadura2 = new Armadura(refuerzo = cotaDeMalla)
+	
 	//elementos
 	var cofrecitoDeOro
 	cofrecitoDeOro = new CofrecitoDeOro()
@@ -20,7 +23,10 @@ program caposGame {
 	cumuloDeCarbon = new CumuloDeCarbon()
 	
 	var viejoSabio
-	viejoSabio = new ViejoSabio()	
+	viejoSabio = new ViejoSabio()
+	
+	var neblina
+	neblina = new Neblina(enNeblinaHay = [cofrecitoDeOro, armadura2])
 	
 	//bandos
 	var sur
@@ -76,10 +82,12 @@ program caposGame {
 	game.addVisualIn(collarDivino,game.at(0.randomUpTo(15),0.randomUpTo(15)))
 	game.addVisualIn(libroDeHechizos,game.at(0.randomUpTo(15),0.randomUpTo(15)))
 	game.addVisualIn(armadura,game.at(0.randomUpTo(15),0.randomUpTo(15)))
+	game.addVisualIn(espejoFantastico,game.at(0.randomUpTo(15),0.randomUpTo(15)))
 	
 	game.addVisualIn(cofrecitoDeOro,game.at(0.randomUpTo(15),0.randomUpTo(15)))
 	game.addVisualIn(cumuloDeCarbon,game.at(0.randomUpTo(15),0.randomUpTo(15)))
 	game.addVisualIn(viejoSabio,game.at(0.randomUpTo(15),0.randomUpTo(15)))
+	game.addVisualIn(neblina,game.at(0.randomUpTo(15),0.randomUpTo(15)))
 	
 	game.addVisual(rolando)
 	game.addVisual(caterina)
