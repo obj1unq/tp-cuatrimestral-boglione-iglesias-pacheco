@@ -11,7 +11,7 @@ class CofrecitoDeOro {
 		game.removeVisual(self)
 	}
 	
-	//este method se podria borrar
+	
 	method seEncuentraCon(capo) {
 		capo.bando().aniadirTesoro(oro)
 	}
@@ -28,7 +28,7 @@ class CumuloDeCarbon {
 		game.removeVisual(self)
 	}
 	
-	//este method se podria borrar
+	
 	method seEncuentraCon(capo) {
 		capo.bando().aniadirMateriales(50)
 	}
@@ -46,7 +46,7 @@ class ViejoSabio {
 		alguien.incHechiceriaBase(1)
 	}
 	
-	//este method se podria borrar
+	
 	method seEncuentraCon(capo) {
 		capo.incLuchaBase(1)
 		capo.incHechiceriaBase(puntosHechiceria)
