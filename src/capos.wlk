@@ -89,7 +89,7 @@ class Capo {
 	method encuentraCapo(capo) {
 		if(capo.esAmigoDe(self)) {
 			capo.artefactos().addAll(self.artefactos())
-			//hay que remover los artefactos del amigo de rolando?		
+			self.artefactos().clear()		
 		}else self.pelea(capo)
 	}
 	
