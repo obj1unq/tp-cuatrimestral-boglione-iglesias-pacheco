@@ -29,7 +29,7 @@ program caposGame {
 	superViejoSabio = new ViejoSabio(puntosHechiceria = 10)
 	
 	var neblina
-	neblina = new Neblina(enNeblinaHay = [archibaldo, superViejoSabio, armadura2])
+	neblina = new Neblina(enNeblinaHay = [superViejoSabio, armadura2])
 	
 	//bandos
 	var sur
@@ -94,7 +94,7 @@ program caposGame {
 	
 	game.addVisual(rolando)
 	game.addVisual(caterina)
-//	game.addVisual(archibaldo)
+	game.addVisual(archibaldo)
 	
 	
 	//TECLADO
