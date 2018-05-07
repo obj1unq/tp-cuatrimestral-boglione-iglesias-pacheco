@@ -25,8 +25,11 @@ program caposGame {
 	var viejoSabio
 	viejoSabio = new ViejoSabio()
 	
+	var superViejoSabio
+	superViejoSabio = new ViejoSabio(puntosHechiceria = 10)
+	
 	var neblina
-	neblina = new Neblina(enNeblinaHay = [cofrecitoDeOro, armadura])
+	neblina = new Neblina(enNeblinaHay = [archibaldo, superViejoSabio, armadura2])
 	
 	//bandos
 	var sur
@@ -54,7 +57,7 @@ program caposGame {
 	caterina = new Capo()
 	caterina.imagen("caterina.png")
 	caterina.nombre("Caterina")
-	caterina.posicion(game.at(9,9))
+	caterina.posicion(game.at(0.randomUpTo(15),0.randomUpTo(15)))
 	caterina.luchaBase(2)
 	caterina.hechiceriaBase(1)
 	caterina.bando(sur)
@@ -63,7 +66,7 @@ program caposGame {
 	var archibaldo = new Capo()
 	archibaldo.imagen("archibaldo.png")
 	archibaldo.nombre("Archibaldo")
-	archibaldo.posicion(game.at(2,9))
+	archibaldo.posicion(game.at(0.randomUpTo(15),0.randomUpTo(15)))
 	archibaldo.luchaBase(3)
 	archibaldo.hechiceriaBase(3)
 	archibaldo.bando(norte)
@@ -91,7 +94,7 @@ program caposGame {
 	
 	game.addVisual(rolando)
 	game.addVisual(caterina)
-	game.addVisual(archibaldo)
+//	game.addVisual(archibaldo)
 	
 	
 	//TECLADO
