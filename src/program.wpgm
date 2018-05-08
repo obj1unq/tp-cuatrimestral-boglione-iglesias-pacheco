@@ -7,6 +7,11 @@ import wollok.game.*
 //aa
 program caposGame {
 	
+	//capos
+	var rolando = new Capo()
+	var caterina = new Capo()
+	var archibaldo = new Capo()
+	
 	//artefactos
 	var armadura
 	armadura = new Armadura()
@@ -29,7 +34,7 @@ program caposGame {
 	superViejoSabio = new ViejoSabio(puntosHechiceria = 10)
 	
 	var neblina
-	neblina = new Neblina(enNeblinaHay = [superViejoSabio, armadura2])
+	neblina = new Neblina(enNeblinaHay = [archibaldo,viejoSabio, armadura])
 	
 	//bandos
 	var sur
@@ -43,8 +48,7 @@ program caposGame {
 	norte.reservaDeMateriales(200)
 	
 	//capos
-	var rolando
-	rolando = new Capo()
+	
 	rolando.imagen("rolando.png")
 	rolando.nombre("Rolando")
 	rolando.posicion(game.at(0,0))
@@ -53,8 +57,6 @@ program caposGame {
 	rolando.bando(sur)
 	rolando.artefactos(#{})
 	
-	var caterina
-	caterina = new Capo()
 	caterina.imagen("caterina.png")
 	caterina.nombre("Caterina")
 	caterina.posicion(game.at(0.randomUpTo(15),0.randomUpTo(15)))
@@ -63,7 +65,6 @@ program caposGame {
 	caterina.bando(sur)
 	caterina.artefactos(#{espadaDelDestino})
 	
-	var archibaldo = new Capo()
 	archibaldo.imagen("archibaldo.png")
 	archibaldo.nombre("Archibaldo")
 	archibaldo.posicion(game.at(0.randomUpTo(15),0.randomUpTo(15)))
@@ -84,17 +85,17 @@ program caposGame {
 	game.addVisualIn(espadaDelDestino,game.at(0.randomUpTo(15),0.randomUpTo(15)))
 	game.addVisualIn(collarDivino,game.at(0.randomUpTo(15),0.randomUpTo(15)))
 	game.addVisualIn(libroDeHechizos,game.at(0.randomUpTo(15),0.randomUpTo(15)))
-	game.addVisualIn(armadura,game.at(0.randomUpTo(15),0.randomUpTo(15)))
+	//game.addVisualIn(armadura,game.at(0.randomUpTo(15),0.randomUpTo(15)))
 	game.addVisualIn(espejoFantastico,game.at(0.randomUpTo(15),0.randomUpTo(15)))
 	
 	game.addVisualIn(cofrecitoDeOro,game.at(0.randomUpTo(15),0.randomUpTo(15)))
 	game.addVisualIn(cumuloDeCarbon,game.at(0.randomUpTo(15),0.randomUpTo(15)))
-	game.addVisualIn(viejoSabio,game.at(0.randomUpTo(15),0.randomUpTo(15)))
+	//game.addVisualIn(viejoSabio,game.at(0.randomUpTo(15),0.randomUpTo(15)))
 	game.addVisualIn(neblina,game.at(0.randomUpTo(15),0.randomUpTo(15)))
 	
 	game.addVisual(rolando)
 	game.addVisual(caterina)
-	game.addVisual(archibaldo)
+	//game.addVisual(archibaldo)
 	
 	
 	//TECLADO
