@@ -1,6 +1,7 @@
 //------Bandos------
 
 class Bando {
+	// TODO No están usando bien las properties.
 	var property tesoro = null
 	var property reservaDeMateriales = null
 	

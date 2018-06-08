@@ -10,6 +10,7 @@ test "un test"{
 	sur.tesoro(100)
 	sur.reservaDeMateriales(50)
 	
+	// TODO Mejorar la inicialización de los objetos, aprovechar todas las características del lenguaje, evitar setters innecesarios.
 	var norte
 	norte = new Bando()
 	norte.tesoro(200)
