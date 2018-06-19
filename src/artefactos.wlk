@@ -148,35 +148,34 @@ class Armadura {
 	}
 }
 
-object cotaDeMalla {
+class Refuerzos{
 	method lucha(){
-		return 1
+		return 0
 	}
 	method hechiceria(puntos){
 		return 0
 	}
 }
-object bendicion {
-	method lucha(){
-		return 0
+
+object cotaDeMalla inherits Refuerzos{
+	override method lucha(){
+		return 1
 	}
-	method hechiceria(puntos){
+	
+}
+object bendicion inherits Refuerzos{
+	
+	override method hechiceria(puntos){
 		return 1
 	}
 }
-object hechizo {
-	method lucha(){
-		return 0
-	}
-	method hechiceria(puntos){
+object hechizo inherits Refuerzos{
+	
+	override method hechiceria(puntos){
 		return if(puntos>3){2} else{0}
 	}
 }
-object ninguna {
-	method lucha(){
-		return 0
-	}
-	method hechiceria(puntos){
-		return 0
-	}
+object ninguna inherits Refuerzos{
+	
+	
 }
