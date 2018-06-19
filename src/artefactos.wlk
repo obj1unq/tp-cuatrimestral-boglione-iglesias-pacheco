@@ -14,8 +14,8 @@ class Artefacto{
 		return self.lucha(capo) + self.hechiceria(capo)
 	}
 	method llego(alguien) {
-//		// TODO GRAVE: Evitar precálculos, esta estrategia no funciona.
-//		// TODO No respeta el enunciado, está modificando la base, no es lo pedido.
+//		// TODO GRAVE: Evitar precálculos, esta estrategia no funciona. ==> Solucionado
+//		// TODO No respeta el enunciado, está modificando la base, no es lo pedido. ==> Solucionado 
 
 		alguien.obtenerArtefacto(self)
 		game.removeVisual(self)	
