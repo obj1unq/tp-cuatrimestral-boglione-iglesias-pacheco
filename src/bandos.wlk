@@ -1,7 +1,7 @@
 //------Bandos------
 
 class Bando {
-	// TODO No están usando bien las properties.
+	// TODO No están usando bien las properties. ===> Solucionado.
 	var property tesoro = null
 	var property reservaDeMateriales = null
 	
@@ -13,11 +13,4 @@ class Bando {
 		reservaDeMateriales += cant
 	}
 	
-	method tesoro() {
-		return tesoro
-	}
-	
-	method reservaDeMateriales() {
-		return reservaDeMateriales
-	}
 }
