@@ -9,7 +9,7 @@ test "un test"{
 	sur = new Bando(tesoro=100 , reservaDeMateriales=50)
 
 	
-	// TODO Mejorar la inicialización de los objetos, aprovechar todas las características del lenguaje, evitar setters innecesarios.
+	// TODO Mejorar la inicialización de los objetos, aprovechar todas las características del lenguaje, evitar setters innecesarios. ==> Solucionado
 	var norte
 	norte = new Bando(tesoro = 200, reservaDeMateriales = 200)
 
