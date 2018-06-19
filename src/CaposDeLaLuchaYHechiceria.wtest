@@ -15,15 +15,11 @@ describe "tests para rolando" {
 	var viejoSabio
 	
 	fixture {
-		sur = new Bando()
-		sur.tesoro(0)
-		sur.reservaDeMateriales(0)
+		sur = new Bando(tesoro = 0 , reservaDeMateriales = 0)
+
 		
-		rolando = new Capo()
-		rolando.bando(sur)
-		rolando.hechiceriaBase(1)
-		rolando.luchaBase(3)
-		rolando.artefactos(#{})
+		rolando = new Capo(bando = sur , hechiceriaBase = 1, luchaBase = 3, artefactos = #{})
+
 		
 		armaduraCotaDeMalla = new Armadura(refuerzo = cotaDeMalla)
 		armaduraBendicion = new Armadura(refuerzo = bendicion)

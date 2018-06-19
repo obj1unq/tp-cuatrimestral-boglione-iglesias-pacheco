@@ -6,37 +6,25 @@ import elementos.*
 test "un test"{
 	var cofreOro = new CofrecitoDeOro()
 	var sur
-	sur = new Bando()
-	sur.tesoro(100)
-	sur.reservaDeMateriales(50)
+	sur = new Bando(tesoro=100 , reservaDeMateriales=50)
+
 	
 	// TODO Mejorar la inicialización de los objetos, aprovechar todas las características del lenguaje, evitar setters innecesarios.
 	var norte
-	norte = new Bando()
-	norte.tesoro(200)
-	norte.reservaDeMateriales(200)
+	norte = new Bando(tesoro = 200, reservaDeMateriales = 200)
+
 	
 	var rolando
-	rolando = new Capo()
-	rolando.bando(sur)
-	rolando.hechiceriaBase(3)
-	rolando.luchaBase(1)
-	rolando.artefactos(#{})
+	rolando = new Capo(bando = sur, hechiceriaBase = 3, luchaBase = 1, artefactos=#{})
+
 	
 	var caterina
-	caterina = new Capo()
-	caterina.bando(sur)
-	caterina.hechiceriaBase(1)
-	caterina.luchaBase(2)
-	caterina.artefactos(#{espadaDelDestino})
+	caterina = new Capo(bando = sur, hechiceriaBase = 1, luchaBase = 2, artefactos=#{espadaDelDestino})
+
 	
 	var archibaldo
-	archibaldo = new Capo()
-	archibaldo.bando(norte)
-	archibaldo.hechiceriaBase(3)
-	archibaldo.luchaBase(3)
-	archibaldo.artefactos(#{collarDivino,espejoFantastico})
-	
+	archibaldo = new Capo(bando = norte, hechiceriaBase = 3, luchaBase = 3, artefactos=#{collarDivino,espejoFantastico})
+
 	assert.that(rolando.esAmigoDe(caterina))
 	assert.notThat(rolando.esAmigoDe(archibaldo))
 	
