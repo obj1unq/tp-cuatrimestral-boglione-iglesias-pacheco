@@ -44,8 +44,6 @@ object libroDeHechizos inherits Artefacto{
 	const property nombre ="Libro de Hechizos"
 	const property imagen ="libro.png"
 
-	
-	
 	override method hechiceria(capo){
 		return capo.hechiceriaBase()
 	}
@@ -83,7 +81,6 @@ object espejoFantastico inherits Artefacto{
 		return (self.mejorArtefacto(capo)).lucha(capo)
 	}
 
-	
 	method mejorArtefacto(capo){
 		return if (self.artefactosSinEspejo(capo).isEmpty())
 			{artefactoCero}
@@ -104,7 +101,6 @@ class Armadura inherits Artefacto{
 	const property nombre ="Armadura"
 	const property imagen ="armadura.png"
 
-	
 	
 	method nuevoRefuerzo(_refuerzo){
 		refuerzo=_refuerzo
