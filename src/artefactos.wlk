@@ -1,3 +1,4 @@
+import capos.*
 //------Artefactos------
 
 object artefactoCero {
@@ -8,9 +9,10 @@ object artefactoCero {
 		return 0
 	}
 	
-	// TODO Este código está repetido en todos los capos.
+	// TODO Este código está repetido en todos los capos. ===> solucionado?
 	method sumaDeLuchaYHechiceria(capo){
-		return self.lucha(capo) + self.hechiceria(capo)
+//		return self.lucha(capo) + self.hechiceria(capo)
+		return capo.luchaYHechiceriaTotal()
 	}
 }
 
