@@ -1,7 +1,8 @@
 import capos.*
 //------Artefactos------
 
-object artefactoCero {
+class Artefacto{
+	
 	method hechiceria(capo){
 		return 0
 	}
@@ -9,76 +10,59 @@ object artefactoCero {
 		return 0
 	}
 	
-	// TODO Este código está repetido en todos los capos. ===> solucionado?
 	method sumaDeLuchaYHechiceria(capo){
 		return self.lucha(capo) + self.hechiceria(capo)
 	}
-}
-
-object espadaDelDestino {
-	//wollok game - tp2
-	const property nombre ="Espada del Destino"
-	const property imagen ="espada.png"
 	method llego(alguien) {
 //		// TODO GRAVE: Evitar precálculos, esta estrategia no funciona.
 //		// TODO No respeta el enunciado, está modificando la base, no es lo pedido.
-//		alguien.incLuchaBase(self.lucha(alguien))
-//		alguien.incHechiceriaBase(self.hechiceria(alguien))
+
 		alguien.obtenerArtefacto(self)
 		game.removeVisual(self)	
 	}
+}
+
+
+
+object artefactoCero inherits Artefacto{
 	
-	method hechiceria(capo){
-		return 0
-	}
-	method lucha(capo){
+}
+
+object espadaDelDestino inherits Artefacto{
+	//wollok game - tp2
+	const property nombre ="Espada del Destino"
+	const property imagen ="espada.png"
+	
+	
+	override method lucha(capo){
 		return 3
 	}
-	method sumaDeLuchaYHechiceria(capo){
-		return self.lucha(capo) + self.hechiceria(capo)
-	}
+
 }
-object libroDeHechizos {
+object libroDeHechizos inherits Artefacto{
 	//wollok game - tp2
 	const property nombre ="Libro de Hechizos"
 	const property imagen ="libro.png"
-	method llego(alguien) {
-//		alguien.incLuchaBase(self.lucha(alguien))
-//		alguien.incHechiceriaBase(self.hechiceria(alguien))
-		alguien.obtenerArtefacto(self)
-		game.removeVisual(self)	
-	}
+
 	
 	
-	method hechiceria(capo){
+	override method hechiceria(capo){
 		return capo.hechiceriaBase()
 	}
-	method lucha(capo){
-		return 0
-	}
-	method sumaDeLuchaYHechiceria(capo){
-		return self.lucha(capo) + self.hechiceria(capo)
-	}
+
 }
-object collarDivino {
+object collarDivino inherits Artefacto{
 	//wollok game - tp2
 	const property nombre ="Collar Divino"
 	const property imagen ="collar.png"
-	method llego(alguien) {
-//		alguien.incLuchaBase(self.lucha(alguien))
-//		alguien.incHechiceriaBase(self.hechiceria(alguien))
-		alguien.obtenerArtefacto(self)
-		game.removeVisual(self)	
-	}
-	method hechiceria(capo){
+
+	override method hechiceria(capo){
 		return 1
 	}
-	method lucha(capo){
+	override method lucha(capo){
 		return 1
 	}
-	method sumaDeLuchaYHechiceria(capo){
-		return self.lucha(capo) + self.hechiceria(capo)
-	}	
+	
 }
 
 
@@ -86,26 +70,19 @@ object collarDivino {
 //------Artefactos avanzados------
 
 
-object espejoFantastico {
+object espejoFantastico inherits Artefacto{
 	//wollok game - tp2
 	const property nombre ="Espejo Fantastico"
 	const property imagen ="espejo.png"
-	method llego(alguien) {
-//		alguien.incLuchaBase(self.lucha(alguien))
-//		alguien.incHechiceriaBase(self.hechiceria(alguien))
-		alguien.obtenerArtefacto(self)
-		game.removeVisual(self)	
-	}
+
 	
-	method hechiceria(capo){
+	override method hechiceria(capo){
 		return (self.mejorArtefacto(capo)).hechiceria(capo)
 	}
-	method lucha(capo){
+	override method lucha(capo){
 		return (self.mejorArtefacto(capo)).lucha(capo)
 	}
-	method sumaDeLuchaYHechiceria(capo){
-		return self.lucha(capo) + self.hechiceria(capo)
-	}
+
 	
 	method mejorArtefacto(capo){
 		return if (self.artefactosSinEspejo(capo).isEmpty())
@@ -120,32 +97,25 @@ object espejoFantastico {
 	}
 }
 
-class Armadura {
+class Armadura inherits Artefacto{
 	var refuerzo= ninguna
 	
 	//wollok game
 	const property nombre ="Armadura"
 	const property imagen ="armadura.png"
-	method llego(alguien) {
-//		alguien.incLuchaBase(self.lucha(alguien))
-//		alguien.incHechiceriaBase(self.hechiceria(alguien))
-		alguien.obtenerArtefacto(self)
-		game.removeVisual(self)	
-	}
+
 	
 	
 	method nuevoRefuerzo(_refuerzo){
 		refuerzo=_refuerzo
 	}
-	method hechiceria(capo){
+	override method hechiceria(capo){
 		return refuerzo.hechiceria(capo.hechiceriaBase())
 	}
-	method lucha(capo){
+	override method lucha(capo){
 		return 2 + refuerzo.lucha()
 	}
-	method sumaDeLuchaYHechiceria(capo){
-		return self.lucha(capo) + self.hechiceria(capo)
-	}
+
 }
 
 class Refuerzos{
@@ -176,6 +146,5 @@ object hechizo inherits Refuerzos{
 	}
 }
 object ninguna inherits Refuerzos{
-	
 	
 }
