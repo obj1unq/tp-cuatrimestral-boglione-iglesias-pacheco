@@ -10,7 +10,7 @@ class Artefacto{
 		return 0
 	}
 	
-	method sumaDeLuchaYHechiceria(capo){
+	method poderArtefacto(capo){
 		return self.lucha(capo) + self.hechiceria(capo)
 	}
 	method llego(alguien) {
@@ -85,7 +85,7 @@ object espejoFantastico inherits Artefacto{
 		return if (self.artefactosSinEspejo(capo).isEmpty())
 			{artefactoCero}
 		else 
-			{self.artefactosSinEspejo(capo).max({_artefacto=>_artefacto.sumaDeLuchaYHechiceria(capo)})}
+			{self.artefactosSinEspejo(capo).max({_artefacto=>_artefacto.poderArtefacto(capo)})}
 	}
 	method artefactosSinEspejo(capo){
 		var _artefactos = capo.artefactos().copy()
