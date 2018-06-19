@@ -69,7 +69,7 @@ class Capo {
 		return artefactos
 	}
 	
-	method luchaYHechiceriaTotal() {
+	method poderDeCombate() {
 		return self.luchaTotal() + self.hechiceriaTotal()
 	}
 
@@ -80,17 +80,21 @@ class Capo {
 	} 
 	
 	method pelea(capo) {
-		//Este seria rolando              Este el capo que se encuentra
-		if(capo.luchaYHechiceriaTotal() > self.luchaYHechiceriaTotal()) {
+			//Este seria rolando    //Este el capo que se encuentra
+		if (capo.poderDeCombate() > self.poderDeCombate()) {
 			game.removeVisual(self)
-		}else game.stop()	
+		} else {
+			game.stop()
+		}	
 	}
 	
 	method encuentraCapo(capo) {
 		if(capo.esAmigoDe(self)) {
 			capo.artefactos().addAll(self.artefactos())
 			self.artefactos().clear()		
-		}else self.pelea(capo)
+		} else {
+			self.pelea(capo)
+		}
 	}
 	
 	
