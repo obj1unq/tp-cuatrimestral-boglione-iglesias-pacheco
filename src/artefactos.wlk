@@ -11,8 +11,7 @@ object artefactoCero {
 	
 	// TODO Este código está repetido en todos los capos. ===> solucionado?
 	method sumaDeLuchaYHechiceria(capo){
-//		return self.lucha(capo) + self.hechiceria(capo)
-		return capo.luchaYHechiceriaTotal()
+		return self.lucha(capo) + self.hechiceria(capo)
 	}
 }
 
@@ -21,10 +20,10 @@ object espadaDelDestino {
 	const property nombre ="Espada del Destino"
 	const property imagen ="espada.png"
 	method llego(alguien) {
-		// TODO GRAVE: Evitar precálculos, esta estrategia no funciona.
-		// TODO No respeta el enunciado, está modificando la base, no es lo pedido.
-		alguien.incLuchaBase(self.lucha(alguien))
-		alguien.incHechiceriaBase(self.hechiceria(alguien))
+//		// TODO GRAVE: Evitar precálculos, esta estrategia no funciona.
+//		// TODO No respeta el enunciado, está modificando la base, no es lo pedido.
+//		alguien.incLuchaBase(self.lucha(alguien))
+//		alguien.incHechiceriaBase(self.hechiceria(alguien))
 		alguien.obtenerArtefacto(self)
 		game.removeVisual(self)	
 	}
@@ -44,8 +43,8 @@ object libroDeHechizos {
 	const property nombre ="Libro de Hechizos"
 	const property imagen ="libro.png"
 	method llego(alguien) {
-		alguien.incLuchaBase(self.lucha(alguien))
-		alguien.incHechiceriaBase(self.hechiceria(alguien))
+//		alguien.incLuchaBase(self.lucha(alguien))
+//		alguien.incHechiceriaBase(self.hechiceria(alguien))
 		alguien.obtenerArtefacto(self)
 		game.removeVisual(self)	
 	}
@@ -66,8 +65,8 @@ object collarDivino {
 	const property nombre ="Collar Divino"
 	const property imagen ="collar.png"
 	method llego(alguien) {
-		alguien.incLuchaBase(self.lucha(alguien))
-		alguien.incHechiceriaBase(self.hechiceria(alguien))
+//		alguien.incLuchaBase(self.lucha(alguien))
+//		alguien.incHechiceriaBase(self.hechiceria(alguien))
 		alguien.obtenerArtefacto(self)
 		game.removeVisual(self)	
 	}
@@ -92,8 +91,8 @@ object espejoFantastico {
 	const property nombre ="Espejo Fantastico"
 	const property imagen ="espejo.png"
 	method llego(alguien) {
-		alguien.incLuchaBase(self.lucha(alguien))
-		alguien.incHechiceriaBase(self.hechiceria(alguien))
+//		alguien.incLuchaBase(self.lucha(alguien))
+//		alguien.incHechiceriaBase(self.hechiceria(alguien))
 		alguien.obtenerArtefacto(self)
 		game.removeVisual(self)	
 	}
@@ -128,8 +127,8 @@ class Armadura {
 	const property nombre ="Armadura"
 	const property imagen ="armadura.png"
 	method llego(alguien) {
-		alguien.incLuchaBase(self.lucha(alguien))
-		alguien.incHechiceriaBase(self.hechiceria(alguien))
+//		alguien.incLuchaBase(self.lucha(alguien))
+//		alguien.incHechiceriaBase(self.hechiceria(alguien))
 		alguien.obtenerArtefacto(self)
 		game.removeVisual(self)	
 	}
